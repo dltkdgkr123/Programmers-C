@@ -1,0 +1,25 @@
+/*
+  '수'의 크기는 해당 문제에서 3byte, vs에선 4byte -> 환경에 따라 달라질 수 있으므로 크기를 len에 저장
+  n*len만큼 동적할당한 후, i * len번째 주소마다 비트연산으로 홀짝여부 판별 후 대입
+*/
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* solution(int n) {
+    // 리턴할 값은 메모리를 동적 할당해주세요.
+    const char* c1 = "박";
+    const char* c2 = "수";
+
+    int len = strlen(c1);
+    char* answer = (char*)malloc(n * len);
+    
+    for (int i = 0; i < n; i++)
+    {
+        strcpy(&answer[i * len], (i & 1) ? c1 : c2);
+    }
+    
+    return answer;
+}
