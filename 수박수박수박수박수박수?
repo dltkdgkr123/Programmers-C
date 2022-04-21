@@ -1,6 +1,10 @@
 /*
   '박'/'수'의 크기는 해당 문제에서 3byte, vs에선 4byte -> 환경에 따라 달라질 수 있으므로 크기를 len에 저장
   n*len만큼 동적할당한 후, i * len번째 주소마다 비트연산으로 홀짝여부 판별 후 대입
+  
+  char* strncpy(char* dest, const char* origin, size_t n);
+  string number copy
+  origin의 문자열을 dest에 n의 크기만큼 대입
 */
 
 #include <stdio.h>
