@@ -1,0 +1,51 @@
+/*
+    sizeof(const char*) == 8 != 문자열size 임에 주의 -> 포인터의 size를 나타내므로
+    문자열이므로 answer[len] = NULL;임에 주의
+*/
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+// 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
+char* solution(const char* s) {
+    // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
+
+    int cnt = 0;
+    int len = strlen(s);
+    char* answer = (char*)malloc(len + 1);
+
+    for (int i = 0; i < len; i++)
+    {
+        if (s[i] == ' ')
+        {
+            answer[i] = s[i];
+            cnt = 0;
+            continue;
+        }
+
+        if (cnt % 2) //홀수고
+        {
+            if (s[i] > 96 && s[i] < 123) //소문자면
+                answer[i] = s[i]; //그대로
+            else
+                answer[i] = s[i] + 32; //대문자로
+
+        }
+        else  //짝수고
+        {
+            if (s[i] > 96 && s[i] < 123)
+                answer[i] = s[i] - 32; //대문자로
+            else
+                answer[i] = s[i]; //그대로
+
+        }
+
+        cnt++;
+    }
+
+    answer[len] = NULL;
+
+    return answer;
+}
