@@ -1,7 +1,5 @@
 // num & 1을 사용하면, 홀수일 때 첫 비트가 1이므로 1, 짝수일 때 0이므로 0이된다. 더 나은방법인것 같다.
 
-
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
